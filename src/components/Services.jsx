@@ -2,6 +2,7 @@ import React from 'react'
 import Title from './Title'
 import assets from '../assets/assets'
 import ServiceCard from './ServiceCard'
+import { motion } from 'motion/react'
 
 const Services = () => {
     const servicesData = [
@@ -26,17 +27,22 @@ const Services = () => {
             icon: assets.social_icon
         },
     ]
-
     return (
     <div>
         <div id='services' className='relative flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
-            <img src={assets.bgImage2} alt="" className='absolute -top-110 -left-70 -z-1 dark:hidden' />
-
-            <Title 
-                title='How can we help?' 
-                desc='From strategy to execution, we craft digital solution that move your business forward.' 
+            <motion.img
+                initial={{opacity: 0, y: 40}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.8, delay: 0.2}}
+                viewport={{once: true}}
+                src={assets.bgImage2} alt="" className='absolute -top-110 -left-70 -z-1 dark:hidden' 
             />
-
+            
+            <Title 
+                 title='How can we help?' 
+                 desc='From strategy to execution, we craft digital solution that move your business forward.' 
+             />
+             
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 {servicesData.map((service, index) =>
                     <ServiceCard key={index} service={service} index={index} />
@@ -46,5 +52,4 @@ const Services = () => {
     </div>
     )
 }
-
 export default Services

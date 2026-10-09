@@ -1,9 +1,16 @@
 import React from 'react'
 import assets from '../assets/assets'
+import { motion } from 'motion/react'
 
 const Footer = ({ theme }) => {
     return (
-        <div className='bg-slate-50 dark:bg-gray-950 px-4 sm:px-12 lg:px-24 xl:px-40 pt-20 pb-6 transition-colors'>
+        <motion.div
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6, delay: 0.3}}
+            viewport={{once: true}}
+            className='bg-slate-50 dark:bg-gray-950 px-4 sm:px-12 lg:px-24 xl:px-40 pt-20 pb-6 transition-colors'
+        >
             <div className='flex justify-between lg:items-center max-lg:flex-col gap-10 pb-12'>
                 <div className='space-y-5 text-gray-700 dark:text-gray-400 max-w-lg'>
                     <img src={theme === 'dark' ? assets.logo_dark : assets.logo} className='w-32 sm:w-44' alt="Logo" />
@@ -26,18 +33,13 @@ const Footer = ({ theme }) => {
                             className='w-full p-3 text-sm outline-none rounded-lg dark:text-gray-200 bg-transparent border border-gray-300 dark:border-gray-600 focus:border-primary transition-colors' 
                             required
                         />
-                        <button 
-                            type='submit' 
-                            className='bg-primary text-white rounded-lg px-6 font-medium hover:scale-105 active:scale-95 transition-all cursor-pointer whitespace-nowrap'
-                        >
+                        <button type='submit' className='bg-primary text-white rounded-lg px-6 font-medium hover:scale-105 active:scale-95 transition-all cursor-pointer whitespace-nowrap'>
                             Subscribe
                         </button>
                     </form>
                 </div>
             </div>
-
             <hr className='border-gray-300 dark:border-gray-800 my-6' />
-
             <div className='pb-6 text-sm text-gray-500 dark:text-gray-400 flex justify-between sm:items-center gap-4 max-sm:flex-col'>
                 <p>&copy; 2026 agency.ai - All rights reserved.</p>
                 <div className='flex items-center gap-4'>
@@ -47,8 +49,7 @@ const Footer = ({ theme }) => {
                     <a href="#" className='opacity-70 hover:opacity-100 transition-opacity'><img src={assets.linkedin_icon} alt="LinkedIn" className='w-5 h-5' /></a>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
-
 export default Footer
