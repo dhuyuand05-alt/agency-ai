@@ -37,7 +37,7 @@ const Services = () => {
                 desc='From strategy to execution, we craft digital solution that move your business forward.' 
             />
 
-            <div className='md:grid grid grid-cols-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 {servicesData.map((service, index) =>
                     <ServiceCard key={index} service={service} index={index} />
                 )}
