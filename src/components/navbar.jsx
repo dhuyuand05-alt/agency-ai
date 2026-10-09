@@ -17,7 +17,7 @@ const [sidebarOpen, setSidebarOpen] = useState(false)
             <a href="#contact-us" className='sm:hover:border-b' onClick={()=>setSidebarOpen(false)}>Contact Us</a>
         </div>
         <div className='flex items-center gap-2 sm:gap-4'>
-            {/* THEME TOOGLE BUTTON */}
+            {/* THEME TOOGLE BUTTON hhsd */}
             <ThemeToggleBtn theme={theme} setTheme={setTheme} />
             {/* TOMBOL MENU */}
             <img src={theme === 'dark' ? assets.menu_icon_dark : assets.menu_icon} alt ="" onClick={()=> setSidebarOpen(true)} className='w-8 sm:hidden' />
@@ -29,5 +29,7 @@ const [sidebarOpen, setSidebarOpen] = useState(false)
     </div>
   );
 };
+
+
 
 export default Navbar;
